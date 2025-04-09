@@ -4,7 +4,7 @@ import '../models/event_model.dart';
 
 class ApiService {
   // Dirección base del servidor backend (localhost desde Android Studio/emulador)
-  static const String baseUrl = 'http://10.0.2.2:5000';//10.0.2.2 → apunta al localhost de mi PC desde el emulador Android. Puerto 5000 porque estoy usando FLASK
+  static const String baseUrl = 'http://10.0.2.2:5000'; //10.0.2.2 → apunta al localhost de mi PC desde el emulador Android. Puerto 5000 porque estoy usando FLASK
 
   // Método para obtener eventos desde la API
   static Future<List<dynamic>> fetchEvents() async {

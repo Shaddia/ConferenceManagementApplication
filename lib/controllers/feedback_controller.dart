@@ -6,15 +6,16 @@ class FeedbackController extends ChangeNotifier {
 
   List<FeedbackModel> get feedbacks => List.unmodifiable(_feedbacks);
 
-  void submitFeedback(String message) {
-    final feedback = FeedbackModel(
-      id: DateTime.now().millisecondsSinceEpoch,
-      message: message,
-      timestamp: DateTime.now(),
-    );
-    _feedbacks.add(feedback);
-    notifyListeners();
-  }
+void submitFeedback(String message, String eventId) {
+  final feedback = FeedbackModel(
+    id: DateTime.now().millisecondsSinceEpoch,
+    message: message,
+    timestamp: DateTime.now(),
+    eventId: eventId,
+  );
+  _feedbacks.add(feedback);
+  notifyListeners();
+}
 
   void clearFeedbacks() {
     _feedbacks.clear();

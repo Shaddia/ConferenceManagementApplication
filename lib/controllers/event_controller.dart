@@ -8,7 +8,7 @@ class EventController extends ChangeNotifier {
   List<Event> _events = [];
 
   // Lista de IDs de eventos suscritos por el usuario
-  final List<int> _subscribedEventIds = [];
+  final List<String> _subscribedEventIds = [];
 
   // Getter: Todos los eventos
   List<Event> get events => _events;
@@ -50,6 +50,22 @@ class EventController extends ChangeNotifier {
       print('Error al cargar eventos desde la API: $e');
     }
   }
+
+ /* Future<void> loadEvents() async {
+  await Future.delayed(const Duration(seconds: 1));
+  final dummyEvents = [
+    Event(
+      id: '1',
+      title: 'Evento Prueba',
+      description: 'Esto es un evento simulado',
+      date: DateTime.now(),
+      location: 'Virtual',
+      capacity: 50,
+    ),
+  ];
+  updateEvents(dummyEvents);
+}
+*/
 
   // Limpiar todas las suscripciones
   void clearSubscriptions() {

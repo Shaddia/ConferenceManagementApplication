@@ -4,7 +4,8 @@ import 'controllers/event_controller.dart';
 import 'controllers/feedback_controller.dart';
 import 'pages/event_list_page.dart';
 import 'pages/subscribed_events_page.dart';
-import 'pages/feedback_page.dart'; 
+import 'pages/feedback_page.dart';
+import 'models/event_model.dart'; // 👈 Asegúrate de importar el modelo Event
 
 void main() {
   runApp(const ConferenceApp());
@@ -22,10 +23,7 @@ class ConferenceApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Conference Manager',
-        theme: ThemeData(
-          primarySwatch: Colors.indigo,
-          useMaterial3: true,
-        ),
+        theme: ThemeData(primarySwatch: Colors.indigo, useMaterial3: true),
         home: const MainNavigation(),
       ),
     );
@@ -82,13 +80,21 @@ class _MainNavigationState extends State<MainNavigation> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
-      // 👉 Botón temporal para probar FeedbackPage
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.feedback),
         onPressed: () {
+          final dummyEvent = Event(
+            id: 'demo001',
+            title: 'Inteligencia Artificial en la Educación',
+            description: '¿Acaso no te interesa saber cómo tu educación es influída por la nueva innovación de la IA? ¡Averigualo!',
+            date: DateTime.now(),
+            location: 'Sala Virtual',
+            capacity: 100,
+          );
+
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (_) => const FeedbackPage()),
+            MaterialPageRoute(builder: (_) => FeedbackPage(event: dummyEvent)),
           );
         },
       ),

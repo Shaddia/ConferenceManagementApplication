@@ -1,5 +1,5 @@
 class Event {
-  final int id;
+  final String id;
   final String title;
   final String description;
   final DateTime date;
@@ -15,19 +15,17 @@ class Event {
     required this.capacity,
   });
 
-  // Método para construir un evento desde un mapa JSON
   factory Event.fromJson(Map<String, dynamic> json) {
     return Event(
-      id: json['id'],
+      id: json['id'].toString(),
       title: json['title'],
       description: json['description'],
-      date: DateTime.parse(json['date']), // Convierte la fecha en DateTime
+      date: DateTime.parse(json['date']),
       location: json['location'],
       capacity: json['capacity'],
     );
   }
 
-  // Método opcional para convertir un objeto a JSON
   Map<String, dynamic> toJson() {
     return {
       'id': id,
