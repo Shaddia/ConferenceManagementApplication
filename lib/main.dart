@@ -5,7 +5,8 @@ import 'controllers/feedback_controller.dart';
 import 'pages/event_list_page.dart';
 import 'pages/subscribed_events_page.dart';
 import 'pages/feedback_page.dart';
-import 'models/event_model.dart'; // 👈 Asegúrate de importar el modelo Event
+import 'models/event_model.dart'; // Asegúrate de importar el modelo Event
+
 
 void main() {
   runApp(const ConferenceApp());
@@ -14,20 +15,33 @@ void main() {
 class ConferenceApp extends StatelessWidget {
   const ConferenceApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => EventController()),
-        ChangeNotifierProvider(create: (_) => FeedbackController()),
-      ],
-      child: MaterialApp(
-        title: 'Conference Manager',
-        theme: ThemeData(primarySwatch: Colors.indigo, useMaterial3: true),
-        home: const MainNavigation(),
+@override
+Widget build(BuildContext context) {
+  return MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => EventController()),
+      ChangeNotifierProvider(create: (_) => FeedbackController()),
+    ],
+    child: MaterialApp(
+      title: 'Conference Manager',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xFFFEF7F3), // fondo suave
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFFFFBBA8), // nude
+          foregroundColor: Colors.black,
+          elevation: 0,
+        ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFFFFBBA8), // para generar una paleta armoniosa
+        ),
       ),
-    );
-  }
+      home: const MainNavigation(),
+    ),
+  );
+}
+
 }
 
 class MainNavigation extends StatefulWidget {
@@ -86,7 +100,7 @@ class _MainNavigationState extends State<MainNavigation> {
           final dummyEvent = Event(
             id: 'demo001',
             title: 'Inteligencia Artificial en la Educación',
-            description: '¿Acaso no te interesa saber cómo tu educación es influída por la nueva innovación de la IA? ¡Averigualo!',
+            description: '¿Acaso no te interesa saber cómo tu educación es influída por la nueva innovación de la IA? ¡Adelante!',
             date: DateTime.now(),
             location: 'Sala Virtual',
             capacity: 100,
