@@ -1,0 +1,1 @@
+ C:\\Users\\Shaddia\\Documents\\github\\ConferenceManagementApplication\\.dart_tool\\flutter_build\\b333f3f9420cf7c1103db1aec850c5df\\native_assets.json: 

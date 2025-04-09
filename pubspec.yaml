@@ -1,0 +1,24 @@
+name: conference_management_application
+description: A Flutter application for managing conferences.
+environment:
+  sdk: '^3.7.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5
+  http: ^1.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+d_dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^2.1.0
+
+
+flutter:
+  uses-material-design: true
